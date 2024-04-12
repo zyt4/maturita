@@ -18,11 +18,12 @@ tohle je jen test, ale pokud budu nudit, tak to asi předělám sem
 3. dokonce i **bold** nebo *italic* i ***oboje***
 
 ```bash
-co tohle um9
+co tohle umí
+ls -la
 ```
 
 nebo i power shell:
-```
+```powershell
 dir
 ```
 
