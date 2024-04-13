@@ -20,7 +20,7 @@
   - Otec Lorenzo = straý františkánský mnich, tajně milence oddá, moudrá, zbožný, přeje jejich lásce
   - Chůva = prostá žena, vychovává Julii, veselá, upovídaná, přináší komické prvky, spojnice mezi milenci
   - Tybalt = Bratranec Julie, chtěl bojovat s Monteneky, zabit Romeem
-  - Merkucio = Pomeův přítel
+  - Merkucio = Romeův přítel
   - Benvolio = příbuzný Monteků, vtipný
   - Paris = Hrabě, kterého si Julie měla vzít
 - obsah:
