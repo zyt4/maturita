@@ -15,6 +15,7 @@ jedná se o ukázkové rozložení stránky
 
 - kompozice: kapitoly/zpěvy/dějství...
 - ih/er forma
+- děj se odehrává chronologicky/retrospektiva
 - postavy(a jejich charakteristika):
 - obsah:
 
@@ -27,7 +28,8 @@ jedná se o ukázkové rozložení stránky
 
 ## Lit. kontext
 
-- něco o autorovi
+- autor:
+  - něco o autorovi
 - jeho další díla
 - literární směr
 - další umělci jeho doba(směru)
