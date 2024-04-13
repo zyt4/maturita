@@ -21,7 +21,7 @@ jedná se o ukázkové rozložení stránky
 ## výňatek
 
 - zařazení do kontextu
-  - co bylo před
+ - co bylo před
   - co bylo po
 - jazykové prostředky (ty důležité vyberu do samostatnéjo souboru)
 
