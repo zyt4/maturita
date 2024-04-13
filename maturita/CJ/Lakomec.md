@@ -13,6 +13,7 @@
 
 - kompozice: 5 dějství, dále dělena na scény
 - psáno formou dialogů
+- děj se odehrává chronologicky
 - postavy(a jejich charakteristika):
   - Harpagon = vdovec, lichvář, necitelný lakomec, za peníze vymění i svou rodinu
   - Eliška = dcera Harpagona
