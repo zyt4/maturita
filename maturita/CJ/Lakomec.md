@@ -1,7 +1,5 @@
 # Lakomec
 
-jedná se o ukázkové rozložení stránky
-
 ## obecná část
 
 - Literární druh: Drama
@@ -26,6 +24,7 @@ jedná se o ukázkové rozložení stránky
   - vdova Bončárová = měla být ženou Kleanta (domluvil to Harpagon)
   - Ansel = budoucí choť Elišky, otec Valéra a Mariany
 - obsah:
+
 Dějištěm Moliérovi komedie je Paříž roku 1670. Vypráví o životě lakomého Harpagona a jeho dvou dětech. Měl dceru Elišku a syna Kleanta, který, aby mohl slušně žít, si udělal samé dluhy. Obě dvě děti neměly svého otce příliš rády, protože celé město vědělo, že je hrozně bohatý, ale byl lakomec a škudlil.
 Eliška se zasnoubila s Valérem, který dělal u nich v domě správce. Protože se však báli požádat otce o svolení k svatbě, rozhodli se, že se Eliška nejprve svěří svému bratrovi Kleantovi. Ten ji však mile překvapil a jako první se jí svěřil se svým trápením. Měl rád chudou dívku z ulice Marianu, ale stejně tak jako Eliška měl strach z otce.
 
