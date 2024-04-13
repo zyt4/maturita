@@ -35,7 +35,7 @@
 - Sonet = lyrická báseň, sloky s verši 4433
 - Tragédie = dramatický žánr, smutný s tragickým koncem
 - Žalm = starozákonní zpěv, dnes i reflexivní lyrické písně
-- 
+
 ## Rozbor textu
 
 ## Rozbor básně
