@@ -27,9 +27,13 @@
 - obsah:
 
 Expozice – Hrdinové příběhu získávají informaci o příchodu revizora. Začíná debata na téma, jak si má každý uklidit na svém písečku.
+
 Kolize – Zjištění, že revizor je již delší dobu ve městě, neklid, snaha získat si revizora.
+
 Krize – Vyvrcholením hry je ve své podstatě zvrat děje na konci hry.
+
 Peripetie – Z dopisu, který údajný revizor poslal známému, se hrdinové dovídají jeho pravou identitu. Chvíli na to je jim ohlášen příchod skutečného revizora.
+
 Závěr – V závěru se již žádné dovysvětlení nevyskytuje. V posledním výstupu je oznámen příjezd úředníka na zvláštní rozkaz z Petrohradu.
 
 Hlavní postava, petrohradský úředník Chlestakov, je omylem považován za revizora, jehož příjezd do malého provinčního městečka byl již předem avizován. Hejtman a další představitelé města se bojí, že bude odhalena jejich úplatkářská praxe a neplnění povinností, a proto Chlestakova uctivě hostí. Tomu přijde situace náramně vhod, předstírá revizora, vetře se do hejtmanovy rodiny a nechá se uplácet ostatními úředníky. Po Chlestakově odjezdu přijíždí skutečný revizor. Hra končí němou scénou zděšených představitelů města.
