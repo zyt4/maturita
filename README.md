@@ -9,8 +9,9 @@ tabulka
 |nějaká blbost|nevim|
 
 
----
-tabulka2
-test:nevim
-opravdu:true
----
+program
+```python
+a = 5
+b = 9
+print(a+b)
+```
