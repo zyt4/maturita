@@ -5,6 +5,7 @@
 - Drama
 
 ## Lit. žánry
+(slohové útvary)
 
 - Anekdota = krátký příběh s vtipnou pointou, lidová slovesnost
 - Bajka = jednoduchý příběh, kde zvířata přebírají lidské vlastnosti, cílem je nějaké poučení
@@ -37,5 +38,22 @@
 - Žalm = starozákonní zpěv, dnes i reflexivní lyrické písně
 
 ## Rozbor textu
+
+### funkční styly
+
+- Prostěsdělovací
+- Odborný
+- Administrativní
+- Publicistický
+- Řečnický
+- Umělecký
+
+### slohové postupy
+
+- Informativní
+- Popisný
+- Vyprávěcí
+- Výkladový
+- Úvahový
 
 ## Rozbor básně
