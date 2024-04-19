@@ -4,6 +4,12 @@
 - Lirika
 - Drama
 
+### forma zpracování
+
+- próza
+- poezie
+- drama
+
 ## Lit. žánry
 (slohové útvary)
 
