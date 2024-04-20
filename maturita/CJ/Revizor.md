@@ -48,7 +48,19 @@ Hlavní postava, petrohradský úředník Chlestakov, je omylem považován za r
 ## Lit. kontext
 
 - autor: Nikolaj Vasiljevič Gogol
-  - něco o autorovi
-- jeho další díla
-- literární směr
-- další umělci jeho doba(směru)
+  - ruský prozaik a dramatik
+  - často používal motivy z historie ukrajiny, kde vyrůstal
+  - kritizoval systém vlády v Rusku
+- jeho další díla:
+  - Mrtvé duše
+  - Ženitba
+  - Podobizna
+- literární směr: Realismus
+  - pravdivý obraz skutečnosti, kritika nedostatků společnosti
+  - důkladný popis prostředí a postav
+  - hlavní postavy jsou obyčejní lidé 
+- další umělci:
+  - Alexandr Sergejevič Puškin
+  - Lev Nikolajevič Tolstoj
+  - Guy de Maupassant
+  - Charles Dickens
