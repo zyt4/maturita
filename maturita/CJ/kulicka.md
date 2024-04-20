@@ -48,6 +48,12 @@ Jednoho mrazivého zimního rána se tři bohaté a vážené manželské páry 
   - Silná jako smrt
   - Miláček
 - literární směr: realismsu, naturalismus
-  - 
-- další umělci jeho doby
+  - pravdivý obraz skutečnosti, kritika nedostatků společnosti
+  - důkladný popis prostředí a postav
+  - hlavní postavy jsou obyčejní lidé
+  - z realizmu se pak vyvinul naturalismus
+- další umělci:
+  - Alexandr Sergejevič Puškin
+  - Lev Nikolajevič Tolstoj
+  - Nikolaj Vasiljevič Gogol
   - Charles Dickens
