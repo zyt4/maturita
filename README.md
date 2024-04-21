@@ -15,5 +15,4 @@ tabulka
 > b = 9
 > print(a+b)
 > ```
-> `[
-> [try your self](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)`
+> `[try your self](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)`
