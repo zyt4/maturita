@@ -478,7 +478,7 @@ create table persons(parametry); # vytvoří tabulku
 show tables; #vypíše tabulky
 describe persons; # popíše nám sloupce tabulky
 
-create user "admin@%" indentified by "superheslo"; #vytvoří uživatele
+create user "admin@%" indentified by "superheslo"; #vytvoří uživatele, za zavináčem je odkud se může připojit, % je odkudkoliv
 grant all on test.* to admin@%; # přidáme mu veškerá oprávnění
 
 #přihlášení pomocí tohoto uživatele: mysql -u admin -p 
