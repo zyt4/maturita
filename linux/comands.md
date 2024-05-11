@@ -476,7 +476,7 @@ describe test; #popíše databázi
 use test; #přesuneme se do databáze
 create table persons(parametry); # vytvoří tabulku
 show tables; #vypíše tabulky
-describe table; # popíše nám sloupce tabulky
+describe persons; # popíše nám sloupce tabulky
 
 create user "admin@%" indentified by "superheslo"; #vytvoří uživatele
 grant all on test.* to admin@%; # přidáme mu veškerá oprávnění
