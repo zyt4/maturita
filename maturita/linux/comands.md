@@ -163,9 +163,47 @@ zobrazení pomocí `dumpe2fs`
 
 ## pokročilá práce se souborovými systémy
 
+### LVM
+
+- pv = physical volume
+- vg = volume group
+- lv = logical volume(něco jako oddíly, ale logicky)
+
+nejprve musíme naformátovat oddíly jako pv: `pvcreate cesta`
+
+pak je musíme přidat do jedné skupiny: `vgcreate název cesta`
+
+nakonec vytváříme logické svazky: `lvcreate --name="název" --size=100M skupina`
+
+uložený jsou pak v `/dev/mapper` ve tvaru `skupina-svazek`
+
+s logic volume pak pracujeme stejně jako s každým oddílem
+
+### Kvóty
+
+v /etc/fstab je potřeba změnit options na `usrquota,grpquota`
+
+pak musíme vytvořit databázi kvót: `quotacheck -cug cesta_k_souboru` (Create User Group)
+
+přidání kvót:
+
+- `edquota -u username` pro uživatele
+- `edquota -ut` mění dobu překročení soft limitu pro všechny
+- `edquota -g group` pro skupinu
+- `edquota -gt` mění dobu překročení soft limitu
+- `quotaon cesta` zapne kvóty
+
+Editor:
+
+- blocks = místo (100M,250M...)
+- inodes = soubory (2000,3650...)
+- soft lze překročit na čas
+- hard = nelze překročit
+- time = slovy (minutes,hours,days...)
+
 ## správa procesů a služeb
 
-## konfigurace služeb: SSH, FTP, DHCP, DNS, NAT
+## konfigurace služeb: SSH, DHCP, DNS
 
 ## konfigurace Apache a MariaDB
 
