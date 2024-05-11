@@ -46,7 +46,7 @@ vytvoření uživatele `useradd`
 nodifikace uživatele `usermod`
 zmazání uživatele `userdel`
 
-optiony:
+optiony (username se píše nakonec):
 
 - `-m` make/move hemo directory (default: /home/username)
 - `-d path` cesta k adresáři
@@ -74,6 +74,34 @@ nodifikace skupiny `groupmod`
 zmazání skupiny `groupdel`
 
 ## oprávnění
+
+změna oprávnění `chmod`
+
+r = 4, w = 2, x = 1
+
+změna číslem: napíšeme číselně jaká oprávnění to má mít (pořadí: owner, group, other)
+
+```bash
+chmod 764 test.txt
+```
+
+další možnost je písmenem (u = user, g = group, o = others, a = all)
+
+`+`přidává, `-` odebírá, `=` přímo nastavuje
+
+dají se nastavovat najednou odělený `,`
+
+```bash
+chmod u=rwx,g+w,o-r test.txt
+```
+
+změna vlastnictví `chown`
+
+- `chown user:group path` nastaví uživatele i skupinu
+- `chown user path` nastaví jen uživatele, skupinu nechá
+- `chown :graou path` nastaví jen skupiny, uživatele nechá 
+
+vypání oprávnění `getfacl` nebo `ls -l`
 
 ## práce se souborovými systémy
 
