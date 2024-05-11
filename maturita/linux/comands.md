@@ -103,7 +103,63 @@ změna vlastnictví `chown`
 
 vypání oprávnění `getfacl` nebo `ls -l`
 
-## práce se souborovými systémy
+## práce s disky a souborovými systémy
+
+### práce s diskem
+
+rozdělení disku na oddíly: `sudo fdisk /dev/sdb` , disk musí být typ gpt
+
+práce s disky:
+- `p` informace o disku (aktuální stav tabulky)1
+- `g` vytvoří novou gpt tyble
+- `n` vytvoří nový oddíl, pak postupujeme podle promptu
+- `w` zapíše změny na disk
+- `d` smaže oddíl
+
+### práce se souborovými systémy
+
+vytvoření filesystému: `mkfs.typ_systému disk`
+```bash
+sudo mkfs.ext4 /dev/sdb2
+```
+
+zobrazení filesystému na oddílu:`blkid`
+
+připojení ke složce: `mount co kam`
+
+```bash
+sudo mount /dev/sdb2 /mnt/test
+```
+automatické mountování: píše se do /etc/fstab
+
+```
+<systém, buď cesta nebo UUID(blkid),nebo label> <kam to připojím> <filesystem> <možnosti> <dump> <pass>
+/dev/sdb3 /mnt/testik ext4 defaults 0 1
+LABEL="mujswap" none swap defaults 0 0
+```
+mountování pak provedeme pomocí `sudo mount -a`
+
+vytvoření swap oddílu: `mkswap`, pak je potřeba aktivovat pomocí swap on
+
+```bash
+mkswap /dev/sdb4
+swap on
+
+# nebo můžeme použít složku
+# nejprve alokujeme místo na disku a pak ho použijeme
+fallocate -l 20M /mnt/misto
+mkswap /mnt/misto
+```
+
+vytvoření popisku: `fsystémlabel`
+
+- ext4 = e4label -L název cesta
+- swap = swaplabel -L název cesta
+
+metadata:
+
+zobrazení pomocí `dumpe2fs`
+úprava metadat `tune2fs`
 
 ## pokročilá práce se souborovými systémy
 
