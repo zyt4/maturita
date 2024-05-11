@@ -461,6 +461,33 @@ a zakázat default stránku `sudo a2dissite 000-default.conf`
 
 nakonec je třeba povolit náš adresář v souboru /etc/apache2.conf na 170 řádku
 
+### MYSQL
+
+balíček se jmenuje: `mariadb-server`
+
+pak naistalujeme pomocí `sudo mysql_secure_instalation` a vždy dáme yes
+
+zapnutí databáze a připojení: `sudo mysql`
+
+pak už pracujeme v sql prostředí:
+```SQL
+create database test; #vytvoří databázi
+describe test; #popíše databázi
+use test; #přesuneme se do databáze
+create table persons(parametry); # vytvoří tabulku
+show tables; #vypíše tabulky
+describe table; # popíše nám sloupce tabulky
+
+create user "admin@%" indentified by "superheslo"; #vytvoří uživatele
+grant all on test.* to admin@%; # přidáme mu veškerá oprávnění
+
+#přihlášení pomocí tohoto uživatele: mysql -u admin -p 
+```
+
+adresa na které server naslouchá se dá změnit v souboru: /etc/mysql/mariadb.conf.d/50-server.cnf
+
+pak už jen změníme bind-adress na to co co chceme
+
 ## Firewall
 
 [routing](https://wiki.archlinux.org/title/simple_stateful_firewall)
