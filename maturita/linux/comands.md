@@ -42,7 +42,36 @@ tar xf test.tar.gz -C /kamchci
 
 ## správa uživatelů a skupin
 
+vytvoření uživatele `useradd`
+nodifikace uživatele `usermod`
+zmazání uživatele `userdel`
 
+optiony:
+
+- `-m` make/move hemo directory (default: /home/username)
+- `-d path` cesta k adresáři
+- `-s shell` určení shellu (/bin/bash)
+- `-g group` primární skupina(vlastnictví, kvótování)
+- `-G group1,group2` sekundární skupiny
+- `--help` zobrazení nápovědy
+- `-a` append, připojení při přidání sekundárni skupiny
+- `-p` určení hesla
+- přidání hesla: `sudo passwd username`
+  - vynusení změny hesla `-e` (expire)
+  - `-l` uzamkne učet
+- expirace účtu pomocí příkazu `sudo chage -E YYYY-MM-DD username`
+  - `-l` vypíše informace o účtu
+
+vypsání informací o uživateli:
+
+- `id usrname` řekne nám to id skupna, kde uživatel je
+- `/etc/passwd` informace o uživatelích
+- `/etc/shadow` uživatelská hesla
+- `/etc/groups` informace o skupinách
+
+vytvoření skupiny `groupadd`
+nodifikace skupiny `groupmod`
+zmazání skupiny `groupdel`
 
 ## oprávnění
 
