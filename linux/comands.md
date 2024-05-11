@@ -400,6 +400,103 @@ localforward localhost:1080 192.168.34.2:443
 
 balíček se jmenuje `apache2 libapache2-mod-php`
 
+pak vezmem stránky z /etc/apache2/sites-available a uděláme kopie:
 
+```
+sudo cp 000default.conf maturitaformalita.cz.conf #http
+sudo cp defaultsssl.conf maturitaformalita.cz.ssl.conf # https
+```
+> v nich se pak upravuje nastavení stránek
+
+http konf:
+```
+<VirtualHost *:80>
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/mysite/maturitaformalita.cz # kde jsou stránkové soubory
+        ServerName www.maturitaformalita.cz #url
+	   #Redirect / https://www.maturitaformalita.cz #možné přesměrování
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+```
+
+https konf
+```
+<VirtualHost *:443>
+        ServerName www.maturitaformalita.cz # url
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/mysite/maturitaformalita.cz #kde jsou soubory
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        SSLEngine on
+
+        SSLCertificateFile      /etc/ssl/certs/maturitaformalita.cz.crt #certifikáty
+        SSLCertificateKeyFile   /etc/ssl/private/maturitaformalita.cz.key
+
+        <FilesMatch "\.(?:cgi|shtml|phtml|php)$">
+                SSLOptions +StdEnvVars
+        </FilesMatch>
+        <Directory /usr/lib/cgi-bin>
+                SSLOptions +StdEnvVars
+        </Directory>
+
+</VirtualHost>
+```
+
+pak je třeba vygenerovat ssl certifikáty (přepíšeme názvy a cestu klíčů):
+
+```bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+```
+
+ssl je třeba povolit pomocí `sudo a2enmod ssl`
+
+potřeba je také povolit stránky: `sudo a2ensite stránka` 
+
+a zakázat default stránku `sudo a2dissite 000-default.conf`
+
+nakonec je třeba povolit náš adresář v souboru /etc/apache2.conf na 170 řádku
 
 ## Firewall
+
+[routing](https://wiki.archlinux.org/title/simple_stateful_firewall)
+
+tables>chains>rules
+
+policy (součást chains) = defaultní akce
+
+chainy = input(pro mě) output(ode mě) forward(přeposílám)
+
+konfiguruje se v iptables
+
+iptables-safe = aktuální sejf
+
+iptables-restore = nahraje do aktuálního firewallu
+
+konfigurace v souboru: `/etc/iptables/rules.v4`
+
+tabulky začínají *
+
+chainy začínají :
+
+polityky jsou hned za tím (default je accept)
+
+- `-A` appent KAM (přidáme k nějakému chainu)
+- `-o` output
+- `-i` input
+- `-j` akce
+- `-m` modul (multiport, state...)(state --state=RELATED,ESTABLISHED)(dports --dports=80,443)
+- `-p` protokol (icmp, tcp, udp...) (icmp --icmp-type=echo-request)
+- `-d` destinace packetu
+- `-s` zdroj packetu
+- povolení natky v nat (-A POSTROUTING -o enp0s3 -j MASQUERADE)
+
+zapsání a pravidel
+
+iptables-save = uloží pravidla
+
+iptables-retore</etc/iptables/rules.v4 (nahraje daná pravidla do aktivního firewallu)
