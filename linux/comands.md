@@ -229,6 +229,13 @@ Editor:
 
 ## konfigurace služeb: DHCP, DNS, SSH
 
+pro sptrávu služeb máme `systemctl` a `journalclt`
+
+```bash
+systemctl start/restart/stop/status název_služby
+journalctl -xeu název_služby
+```
+
 ### nastavení sítě
 
 přes grafickou konzoli `nmtui`
@@ -385,8 +392,14 @@ přes ssh můžeme tunelovat komunikaci. další řádek v configu
 localforward kam co
 localforward localhost:1080 192.168.34.2:443
 ```
-> pristupujeme k tomu pak jako na vlastní localhost
+> přistupujeme k tomu pak jako na vlastní localhost
 
 ## konfigurace Apache a MariaDB
+
+### apache
+
+balíček se jmenuje `apache2 libapache2-mod-php`
+
+
 
 ## Firewall
