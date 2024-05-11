@@ -40,6 +40,17 @@ tar ct test.tar.gz
 tar xf test.tar.gz -C /kamchci
 ```
 
+bitová kopie `dd`
+
+- `if` input file
+- `of` output file
+- `bs` block size
+- `count` počet bloků
+
+```bash
+dd if/dev/urandom of=/dev/key bs=1k count=4
+```
+
 ## správa uživatelů a skupin
 
 vytvoření uživatele `useradd`
@@ -179,6 +190,21 @@ uložený jsou pak v `/dev/mapper` ve tvaru `skupina-svazek`
 
 s logic volume pak pracujeme stejně jako s každým oddílem
 
+### RAID
+
+vytvoření raidu `mdadm`:
+
+- `--create` pro vytvoření
+- `-v` jak se bude jmenovat výsledný disk
+- `-l` úroveň raidu (0,1,5...)
+- `-n` kolik se použije disků
+
+```bash
+mdadm --create -v /dev/md1 -l 0 -n 2 /dev/sdb50 /dev/sdc2
+```
+
+pro automatický raid: `mdadm --detail --scan` to se uloží do /etc/mdadm/mdadm.conf
+
 ### Kvóty
 
 v /etc/fstab je potřeba změnit options na `usrquota,grpquota`
@@ -201,9 +227,165 @@ Editor:
 - hard = nelze překročit
 - time = slovy (minutes,hours,days...)
 
-## správa procesů a služeb
+## konfigurace služeb: DHCP, DNS, SSH
 
-## konfigurace služeb: SSH, DHCP, DNS
+### nastavení sítě
+
+přes grafickou konzoli `nmtui`
+
+informace si můžu zobrazit přes `ip a`
+
+routy jsou přes `ip r`
+
+### DHCP
+
+jedná se o balíček `isc-dhcp-server`, stáhneme pomocí sudo apt install
+
+nastavení je v souboru: `/etc/dhcp/dhcpd.conf`, odstranění řádku pomocí `CTRL+K`
+
+```
+# obecné informace
+option domain-name "maturitaformalita.cz";
+option domain-name-servers 192.168.1.1, 10.0.50.1;
+
+default-lease-time 600;
+max-lease-time 7200;
+ddns-update-style none;
+
+# definování subnetů
+subnet 10.0.50.0 netmask 255.255.255.0 {
+ range 10.0.50.10 10.0.50.254; # adresy
+ option routers 10.0.50.1; # default gateway
+}
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.10 192.168.1.254;
+  option routers 192.168.1.1;
+}
+
+# rezervace adresy
+host server {
+  hardware ethernet 08:00:27:b4:cf:ce;
+  fixed-address 10.0.50.2;
+}
+```
+
+### DNS
+
+balíček se jmenuje `bind9`
+
+obecná konfigurace v souboru `/etc/bind/named.conf.options`
+
+```
+options {
+        directory "/var/cache/bind";
+
+        // forwarders { # když nevím kde se má zeptat
+                        10.20.1.12;
+                        10.20.1.13;
+        };                                                    
+        dnssec-validation no;
+        listen-on {192.168.1.1; 10.0.50.1;}; # kde nasloucá
+        allow-query {192.168.1.0/24; 10.0.50.0/24;}; # od koho příjímá dotazy
+        forward only;
+        listen-on-v6 { any; };
+};
+```
+
+zóny se definují v souboru `/etc/bind/named.conf.local`
+```
+// dopřední z ip na doménové jméno
+zone "maturitaformalira.cz" { // název zóny
+        type master;
+        file "/etc/bind/db.maturitaformalita.cz"; // zápis překladů
+};
+
+//192.168.1.0/24 => 0.1.168.192 => 1.168.192.in-addr.arpa
+zone "1.168.192.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.1.168.192.in-addr.arpa";
+};
+
+//10.0.50.0/24 => 0.50.0.10 => 50.0.10.in-addr.arpa
+zone "50.0.10.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.50.0.10.in-addr.arpa";
+};
+```
+
+konfigurace dané zóny je pak vždy v jejím souboru:
+
+na začátku souboru musí být obecná část. vygenerujeme [online](https://pgl.yoyo.org/as/bind-zone-file-creator.php)
+
+typy záznamů:
+
+- A = IP
+- AAAA = IPv6
+- CNAME = jedno se přeloží na druhý
+
+Dopředný překlad
+
+```
+$ORIGIN maturitaformalita.cz.
+;A záznam
+;domain_name TTL CLASS A ip_address
+;ns.maturitaformalita 86400 IN A 192.168.1.1
+ns A 192.168.1.1
+ns A 10.0.50.1
+www A 10.0.50.2
+
+; CNAME záznam (překládání doménového názvu na jiný)
+mysql CNAME www
+gw CNAME ns
+; (mysql = www = 10.0.50.2)
+```
+
+zpětný překad = záznam je jen PTR
+
+```
+$ORIGIN 1.168.192.in-addr.arpa.
+
+;PTR záznam
+;ip_opačně ttl class ptr domain_name
+;1.1.168.192.in-addr.arpa. 86400 IN PTR ns.maturitaformalita.cz.
+;1.1.168.192.in-addr.arpa.       IN PTR ns.maturitaformalita.cz.
+;1.1.168.192.in-addr.arpa.          PTR ns.maturitaformalita.cz.
+;1                                  PTR ns.maturitaformalita.cz.
+1 PTR ns.maturitaformalita.cz. ; 192.168.1.1
+```
+
+kontrola: nainstalujeme dnsutils
+
+použijeme příkaz `dig`
+
+```
+dig @koho se ptam na co se ptám
+dig @192.168.1.1 www.maturitaformalita.cz
+```
+
+### SSH
+
+ssh user@ip
+
+konfigurace v souboru: `nano .ssh/config`
+
+```
+host gate
+hostname 10.0.50.12
+user fresh
+# pak stačí napsat ssh gate
+```
+
+pro přeskočení hesla vygeneruje klíč pro připojování: `ssh-keygen`
+
+pak ho nakopírujeme na dený stroj: `ssh-copy-id cíl_ip/zkratka`
+
+přes ssh můžeme tunelovat komunikaci. další řádek v configu
+```
+localforward kam co
+localforward localhost:1080 192.168.34.2:443
+```
+> pristupujeme k tomu pak jako na vlastní localhost
 
 ## konfigurace Apache a MariaDB
 
