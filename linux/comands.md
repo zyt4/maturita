@@ -182,7 +182,7 @@ zobrazení pomocí `dumpe2fs`
 
 nejprve musíme naformátovat oddíly jako pv: `pvcreate cesta`
 
-pak je musíme přidat do jedné skupiny: `vgcreate název cesta`
+pak je musíme přidat do jedné skupiny: `vgcreate název pv_cesta`
 
 nakonec vytváříme logické svazky: `lvcreate --name="název" --size=100M skupina`
 
