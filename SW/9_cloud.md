@@ -39,3 +39,7 @@ služby se dělí na:
   - virtual desktop...
 - IaaS = infrastructure as a service
   - virtual machine, kontejnery...
+ 
+Shared responsibility model:
+
+!(obrazky/shared_resp_model.jpg)
