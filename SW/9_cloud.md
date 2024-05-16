@@ -42,4 +42,4 @@ služby se dělí na:
  
 Shared responsibility model:
 
-!(obrazky/shared_resp_model.jpg)
+![alt text](obrazky/shared_resp_model.jpg)
