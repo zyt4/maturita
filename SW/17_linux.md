@@ -40,11 +40,11 @@ vypsání informací o uživateli:
 **Oprávnění souborů**
 
 První znak označuje typ souboru
-- - = standartní soubor
-- d = adresář
-- l = symbolický odkaz na jiný soubor
-- c = zařízení typu char (např terminál)
-- b = zyřízení typu blok (disk)
+- `-` = standartní soubor
+- `d` = adresář
+- `l` = symbolický odkaz na jiný soubor
+- `c` = zařízení typu char (např terminál)
+- `b` = zyřízení typu blok (disk)
 
 zbylých 9 znaků jsou oprávnění
 [alt text](https://github.com/zyt4/maturita/blob/22c5737f54f510067624a3dff279d53bc7c27f2f/obrazky/permissions.png)
