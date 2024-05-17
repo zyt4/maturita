@@ -16,7 +16,7 @@ Přidáním uživatele se automaticky vytvoří
   - [username]:[x]:[UID]:[GID]:[Comment]:[Home directory]:[Default shell]
   - kde x znamená, že je chráněn heslem, to je v /etc/shadow
 - informace o skupině se uloží do /etc/groups
- - [group name]:[group password]:[GID]:[Members]
+  - [group name]:[group password]:[GID]:[Members]
 
 Uživatelský účet se dá modifikovat při vytváření i potom
 - `-m` make/move hemo directory (default: /home/username)
