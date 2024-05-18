@@ -5,7 +5,7 @@
 DNS provádí překlad doméných jmen na IP a naopak
 
 Pokud se jedná o pár překladů můžeme je zapsat do /etc/hosts
-- syntax: <IP> <název> <pokud tak aliasy>
+- syntax: ```<IP> <název> <pokud tak aliasy>```
 
 Pokud se jedná o větší sítě, potřebujeme DNS server
 
