@@ -21,8 +21,8 @@ Proces bootování:
    - načítá moduly a dekce zařízení nutných pro připojení adresářového stromu
 6. Inicializace Kernelu
 7. Po připojení kořenového adresáře kernel spustí správce systému a služeb
-  - sysinit nebo `systemd` (u redhat se jedná o upstart) s PID 1 = ti zajistí uživatelské rozhraní
-  - jedná se o deamony, kteří spravují další procesy(deamony) 
+   - sysinit nebo `systemd` (u redhat se jedná o upstart) s PID 1 = ti zajistí uživatelské rozhraní
+   - jedná se o deamony, kteří spravují další procesy(deamony) 
 
 Linux podporuje systém runlevelů = umožňuje nastavit, jaké služby se budou v daném levelu spouštět, a v jaké levelu se budeme nacházet
 
