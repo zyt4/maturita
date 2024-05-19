@@ -45,7 +45,7 @@ Obor aplikací
 
 Ověření a zabezpečení v IIS
 - slouží k ověření klientů přistupujících k webu
-- možnosti
+- možnosti ověření
   - Anonymous
   - basic authetification = username+pass
   - windows auth. = NTLM a Kerberos(authentifikační protokol) v AD
