@@ -36,7 +36,7 @@ Popkud chceme více webů na jednom serveru máme dvě možnosti
 
 Virtuální adresář IIS webu se defaultně nachází v `%SystemDrive%\inetpub\wwwroot\`
 - jedná se o adresář webu, který odpovídá nějkému fyzickému adresáři
-- v podstatě defaultní adresář webu, nachází se v nem soubory jako třeba stránky
+- v podstatě defaultní adresář webu, nachází se v něm soubory jako třeba stránky
 
 Obor aplikací
 - v podstatě izolované prostředí pro provoz webových aplikací
@@ -59,7 +59,7 @@ Ověření a zabezpečení v IIS
   - šifrování obsahu
   - pomocí autorizačních pravidel je možné povolit/odepřít přístup ke konkrétním webům, aplikacím, souborům...
 
- ## Vzdálený přístup pře VPN, runelovací protokoly, vzdálená správa serveru
+ ## Vzdálený přístup pře VPN, tunelovací protokoly, vzdálená správa serveru
 
  VPN = virtual private network
  - tunelové připojení přes internet
