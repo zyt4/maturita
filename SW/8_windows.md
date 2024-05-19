@@ -32,6 +32,7 @@ Server defaultně naslouchá na všech svých IP adresách na portech 80/443
 Popkud chceme více webů na jednom serveru máme dvě možnosti
 - přidat další síťovku s novou IP, na které bude naslouchat jiný server
 - host headers, weby budou mít stejnou IP, ale na kterýse připojíme se rozhodne podle hostitelské části url
+  - weby jsou virtuální hosté
 
 Virtuální adresář IIS webu se defaultně nachází v `%SystemDrive%\inetpub\wwwroot\`
 - jedná se o adresář webu, který odpovídá nějkému fyzickému adresáři
