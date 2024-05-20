@@ -10,7 +10,7 @@ Funguje převážně v GUI, má i CLI, ale většina uživatelů ho neumí použ
 
 Verze Windows
 
-![alt text](https://github.com/zyt4/maturita/blob/9f81d0007035302407d94e1adaf6b11958b2c561/obrazky/verze_windows.png)
+![alt text](/obrazky/verze_windows.png)
 
 Edice Windows
 - Home = vhodné pro běžné uživatele
