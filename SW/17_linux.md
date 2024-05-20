@@ -48,7 +48,7 @@ První znak označuje typ souboru
 
 zbylých 9 znaků jsou oprávnění
 
-![alt text](https://github.com/zyt4/maturita/blob/22c5737f54f510067624a3dff279d53bc7c27f2f/obrazky/permissions.png)
+![alt text](/obrazky/permissions.png)
 
 změna oprávnění `chmod`
 
