@@ -116,7 +116,7 @@ Edice Windows
 
 ## Popis spouštěcí sekvence OS windows
 
-![alt text](https://github.com/zyt4/maturita/blob/473e84661efb632080195a474f20525c7db7a7c0/obrazky/spousteni_windows.png)
+![alt text](/obrazky/spousteni_windows.png)
 
 1. Jako první se inicializuje EFI (EFI files)
 2. To zkontroluje HW
