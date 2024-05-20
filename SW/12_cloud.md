@@ -46,7 +46,7 @@ service trust portal
 - poskytuje podrobné info o mechanismech a postupech zajištění souladu
 - přístup k nástrojům a obsahu, co vše Azure dělá
 
-## Nástroje a funkce Azure pr osprávu a nasazování prostředků
+## Nástroje a funkce Azure pro správu a nasazování prostředků
 
 Portal Azure
 - grafické prostředí
@@ -88,7 +88,7 @@ Azure service health (služby píoskytované Azurem)
 - umožňuje sledovat stav služeb
 - azure status = obraz celkového stavu všech služeb v Azure ve všech oblastech(říká o výpadcích a jak nás postihnou)
 - service health = konkrétnější pohled na služby, které využíváme a info o nich (odstávky, výpadky...)
-- resource healt = info o kontrétních stavech prostředků
+- resource health = info o kontrétních stavech prostředků
 
 Azure monitor
 - platforma pro shromažďování a anylýzu dat
