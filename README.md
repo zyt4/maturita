@@ -17,4 +17,4 @@ tabulka
 > ```
 > [try your self](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 
-interní [link](/maturita/CJ/1_Lakomec.md)
+interní [link](/CJ/1_Lakomec.md)
