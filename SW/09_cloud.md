@@ -42,4 +42,4 @@ služby se dělí na:
  
 Shared responsibility model:
 
-![alt text](https://github.com/zyt4/maturita/blob/bcd5d3a6f45cd27118a9358d0a6d8acee505b556/obrazky/shared_resp_model.jpg)
+![alt text](/obrazky/shared_resp_model.jpg)
