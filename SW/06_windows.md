@@ -1,6 +1,6 @@
 # Sledování a řešení problémů v operačním systému Windows server
 
-## Monitorování činnosti, řešení problémů v eWindows serveru, nástroje
+## Monitorování činnosti, řešení problémů ve Windows serveru, nástroje
 
 Windows server nabízí několik programů (utilit) pro sledování výkonu
 
@@ -10,7 +10,7 @@ Můžeme se k nim dostat pře ovládací panely(administrative tools), nebo jako
   - umožňuje nám procháze záhnamy toho, co se v systému dělo
     - přihlášení, spuštění plikací, změna politik...
   - je faultní část OS
-- Sytem information
+- device manager
   - podorbné indforamce o počítači
   - Jak o HW tak i o SW
   - obsahuhje informace o ovladačích
@@ -20,7 +20,8 @@ Můžeme se k nim dostat pře ovládací panely(administrative tools), nebo jako
   - dokáže vytvářet reporty
 - Resource monitor
   - zobrazuje zatížení systému a jednotlivých tasků
-- Řešení problémů
+
+Řešení problémů
   - knihovna ITIL (information technology infrastructure library)
   - soubor pravidel a zásad pro správu IT systémů
   - přehled praktit v IT

@@ -44,7 +44,7 @@ Diskové oddíly
 - logické i fyzické
 - disk může mít cív logických oddílů
 - oddíl je dán počtem sektorů
-- windows podporuje MBR (primárně) i GPT
+- windows podporuje MBR (primárně) i GPT (lepší)
 
 Svazky
 - svazek na rozdíl od oddílu má filesystem
@@ -61,8 +61,8 @@ Souborové systémy podporované Windows
   - max 32GB na svazek, používán od win95
 - NTFS
   - new technologiy file system, jeden svazek až 16exabytů
-  - dnes přeferovaný, odoslonst vůči chybám (podporuje journaling)
-  - umořňuje bitlocker
+  - dnes preferovaný, odoslonst vůči chybám (podporuje journaling)
+  - umožňuje bitlocker
 - exFAT
   - vhodný pro USB
 - ReFS
@@ -74,6 +74,6 @@ Souborové systémy podporované Windows
  - umožňuje
    - inicializovat disky(MBR, GPT)
    - spravovat standartdí a dinamické disky a převod mezi nimi
-   - spravovat asvazky
+   - spravovat svazky
    - přidávat písmena ke svazkům
    - formátovat disky, měnit objem svazků
