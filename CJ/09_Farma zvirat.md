@@ -62,6 +62,10 @@ V závěru se na farmě setkávají prasata s okolními farmáři. Ostatní zví
   - 1984
   - Barmské dny
   - Farářova dcera
-- literární směr: 
-- další umělci jeho doba(směru)
+- literární směr: poválečná
+  - zakázaný autor
+- další umělci
+  - samuel becket (čekání na godota)
+  - Karel Čapek
+
 
