@@ -1,35 +1,25 @@
+# vysvětlivky
+
+módy
+- žádný
+- enabled
+- configure terminal
+- configurace interface (dá se mezi nimi přeskakovat bez použití exit mezi)
+
+enabled slouží převážně pro show, nahrání konfigu nebo věci jako ping
+> dají se dělat i od jinud, ale je potřeba před daný příkaz dá `do <příkaz>`
+
+Když nevim co dál je potřeba tak `?` za to co jsem zatím napsal vypíše mi to možnosti
+
+Seznam je dělaný jako konfigurace, módy jsou implikovaný předchozímy příkazy
+
+Příkazy se dají zkrátit na minimální délku, kdy je jednoznačné o jaký příkaz se jedná např.
+- configure terminal => conf t
+- ip address => ip add
+- switchport mode access => sw m a
+
 # basic config
 enable
-
-configure terminal
-
-line vty 0 15
-
-password cisco
-
-login
-
-exec-timeout 1 30
-
-line console 0
-
-password cisco
-
-login
-
-exec-timeout 1 30
-
-enable secret cisco
-
-service password-encryption
-
-login block-for 180 attempts 3 within 60
-
-security passwords min-length 10
-
-hostname R1
-
-banner motd #Authorized Access Only!#
 
 show running-config
 
@@ -51,7 +41,41 @@ write
 
 erase startup-config
 
-reload
+reload // reloads device (deletes running config)
+
+configure terminal
+
+line vty 0 15
+
+password cisco
+
+login
+
+exec-timeout 1 30
+
+exit
+
+line console 0
+
+password cisco
+
+login
+
+exec-timeout 1 30
+
+exit
+
+enable secret cisco
+
+service password-encryption
+
+login block-for 180 attempts 3 within 60
+
+security passwords min-length 10
+
+hostname R1
+
+banner motd #Authorized Access Only!#
 
 interface gigabitethernet 0/1
 
@@ -65,9 +89,13 @@ ipv6 address fe80::1 link-local
 
 no shutdown
 
+exit
+
 ipv6 unicast-routing
 
 ip default-gateway 192.168.1.1
+
+hostname S1
 
 line vty 0 15
 
@@ -77,13 +105,15 @@ login
 
 login local
 
+exit
+
 interface vlan 1
 
 ip address 192.168.186.1 255.255.255.0
 
 no shutdown
 
-hostname S1
+exit
 
 ip domain-name cisco.com
 
@@ -97,13 +127,23 @@ transport input ssh
 ssh version 2
 
 # vlan config
+## switch
+
+conf t
+
 vlan 10
 
 name STUDENT
 
+exit
+
+int f0/5
+
 switchport mode access
 
 switchport access vlan 10
+
+int g0/1
 
 switchport mode trunk
 
@@ -111,21 +151,29 @@ switchport trunk alloved vlan 10,20
 
 switchport trunk native vlan 999
 
-int g0/0.10
-
-encapsulation dot1Q 10
-
-ip add 192.168.0.1 255.255.255.0
-
-no shut
+exit
 
 int vlan 10
 
 ip add 192.168.0.1 255.255.255.0
 
-ip routing
+exit
+
+ip routing (L3 switch)
+
+## router
+
+int g0/0.10
+
+encapsulation dot1Q 10 (vlan number)
+
+ip add 192.168.0.1 255.255.255.0
+
+no shut
 
 # dhcp config
+conf t
+
 ip dhcp pool LAN-POOL
 
 network 192.168.0.0 255.255.255.0
@@ -138,6 +186,8 @@ domain-name example.com
 
 ip dhcp excluded-address 192.168.0.1 192.168.0.10 => all between
 
+exit
+
 int g0/0
 
 ip helper-address 192.168.1.9 
@@ -146,6 +196,8 @@ no service dhcp
 
 show ip dhcp binding
 # dhcpv6
+conf t
+
 int g0/0
 
 ipv6 nd other-config-flag = slaac only
@@ -169,6 +221,8 @@ ipv6 dhcp pool [IPV6-stateless]
 dns-server 2001:db8:acad:1::254
 
 domain-name example.com
+
+exit
 
 int g0/0
 
@@ -203,6 +257,8 @@ show ipv6 dhcp pool
 show ipv6 dhcp binding
 
 # etherchanel
+conf t
+
 int range f0/1-4
 
 channel-group 1 mode active
@@ -215,7 +271,11 @@ sw m t
 
 sw t a v 10,20,30
 
+exit
+
 # fhrp/hsrp
+conf t
+
 int g0/0
 
 standby version 2 (1 neni pro ipv6)
@@ -227,6 +287,7 @@ standby 1 priority 150
 styndby 1 preempt
 
 # port security
+conf t
 
 int f0/1
 
@@ -246,11 +307,15 @@ switchport port-security aging type inacitvity
 
 switchport port-security aging type absolute
 
-switchport port-security violation proteckt|restrict|shutdown
+switchport port-security violation protect|restrict|shutdown
+
+exit
 
 show port-security
 
 show port-security int f0/1
+
+int g0/1
 
 sw m t
 
@@ -319,7 +384,9 @@ spanning-tree portfsast bpduguard default
 
 show spanning-tree summary
 # routing
-next hop
+## next hop
+
+ip route <co podle cílové ip> <kam next hop ip>
 
 ip route 192.168.1.0 255.255.255.0 172.16.2.2
 
@@ -327,7 +394,7 @@ ipv6 unicast-routing
 
 ipv6 route 2001:db8:acad:1::/64 2001:db8:acad:2::2
 
-directly connected
+## directly connected
 
 ip route 192.168.1.0 255.255.255.0 g0/0
 
@@ -337,7 +404,7 @@ ipv6 route 2001:db8:acad:1::/64 g0/0
 
 show ipv6 route
 
-fully specified
+## fully specified
 
 ip route 172.16.1.0 255.255.255.0 g0/0 172.16.2.2
 
@@ -349,7 +416,7 @@ show ip route 192.168.0.0
 
 show running-config | section ip route
 
-default route
+## default route
 
 ip route 0.0.0.0 0.0.0.0
 
@@ -359,7 +426,7 @@ ip route 0.0.0.0 0.0.0.0 172.16.1.1
 
 ipv6 route ::/0 2001:db8:acad:2::2
 
-static floating route
+## static floating route
 
 ip route 0.0.0.0 0.0.0.0 172.16.0.1
 
@@ -369,7 +436,7 @@ ipv6 route route ::/0 2001:db8:acad:2::2
 
 ipv6 route route ::/0 2001:db8:feed:10::2 5
 
-host routes
+## host routes
 
 ip route 209.165.200.238 255.255.255.255 198.51.100.2
 
@@ -512,6 +579,7 @@ ip nat inside source list 1 pool NAT-POOL2 overload
 
 > a pak se nastaví inside/outside int
 # OSPF
+conf t
 
 router ospf 10
 
@@ -525,7 +593,7 @@ default-inforamtion originate //defaul routa se rozešle ostatním
 
 auto-cost reference-bandwith 10000
 
-int 
+int g0/1
 
 ip ospf 10 area oblast
 
@@ -534,6 +602,10 @@ ip ospf priority 200
 ip ospf hello-interval seconds
 
 ip ospf dead-interval seconds
+
+exit
+
+// v enabled režimu
 
 clear ip ospf process
 
